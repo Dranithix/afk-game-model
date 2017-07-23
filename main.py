@@ -15,8 +15,9 @@ timeCounter = presentTime()
 
 class MoneyAction:
     def __init__(self, rank):
-        self.income = random.randint(10000 * (rank * 1.5) , 100000 * (rank * 1.5))
         self.action = self.generateAction()
+        _multiplier = 1 + len(self.action) / 40
+        self.income = int(random.randint(10000, 100000) * (rank * _multiplier))
 
     def generateAction(self):
         global actionVerbs, actionNouns
